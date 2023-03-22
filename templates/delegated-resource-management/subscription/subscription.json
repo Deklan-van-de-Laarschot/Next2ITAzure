@@ -4,29 +4,39 @@
     "parameters": {
         "mspOfferName": {
             "type": "string",
-            "metadata": {
-                "description": "Specify a unique name for your offer"
-            }
+            "value": "Next2IT Managed Services"
         },
         "mspOfferDescription": {
             "type": "string",
-            "metadata": {
-                "description": "Name of the Managed Service Provider offering"
-            }
+            "value": "Next2IT Managed Services"
         },
         "managedByTenantId": {
             "type": "string",
-            "metadata": {
-                "description": "Specify the tenant id of the Managed Service Provider"
-            }
+            "value": "257891b1-c102-4fd8-8776-a17b4c5a8fff"
         },
         "authorizations": {
             "type": "array",
-            "metadata": {
-                "description": "Specify an array of objects, containing tuples of Azure Active Directory principalId, a Azure roleDefinitionId, and an optional principalIdDisplayName. The roleDefinition specified is granted to the principalId in the provider's Active Directory and the principalIdDisplayName is visible to customers."
-            }
-        }              
-    },
+            "value": [
+                { 
+                    "principalId": "f2065cb3-6970-4478-a161-71022c9af8ad", 
+                    "roleDefinitionId": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+                    "principalIdDisplayName": "Next2IT-Azure-Admins" 
+                }, 
+                { 
+                    "principalId": "412e7764-75fb-427a-aea1-a322dee73e0e", 
+                    "roleDefinitionId": "9980e02c-c2be-4d73-94e8-173b1dc7cf3c",
+                    "principalIdDisplayName": "Next2IT-Azure-Servicedesk"
+                    
+                },
+                { 
+                    "principalId": "412e7764-75fb-427a-aea1-a322dee73e0e", 
+                    "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                    "principalIdDisplayName": "Next2IT-Azure-Servicedesk"
+                    
+                }
+                    ]
+                }                
+        },
     "variables": {
         "mspRegistrationName": "[guid(parameters('mspOfferName'))]",
         "mspAssignmentName": "[guid(parameters('mspOfferName'))]"
